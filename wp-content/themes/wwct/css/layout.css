@@ -1,0 +1,30 @@
+body {
+    min-width: 320px;
+    background-color: #005177; 
+}
+    
+/* header */
+
+
+
+/* main */
+#main {
+    background-color: #fff;
+    min-height: 500px;
+}
+
+
+/* footer */
+#footer .footer {
+    padding: 48px 0;
+    background-color: #005a84;
+}
+#footer .footer * {
+    color: #fff;
+}
+#footer .copyright {
+    padding: 24px 0 ;
+}
+#footer .copyright * {
+    color: #407d99;
+}

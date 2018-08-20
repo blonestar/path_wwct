@@ -1,0 +1,95 @@
+{
+    "key": "group_5806c1f4c3974",
+    "title": "Landing - International",
+    "fields": [
+        {
+            "key": "field_58a351962fb4d",
+            "label": "Page language",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5806c3cde22da",
+            "label": "Page language",
+            "name": "page_language",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "fr-fr": "France",
+                "es-es": "Spain",
+                "it-it": "Italy",
+                "sv-se": "Sweden",
+                "da-dk": "Denmark",
+                "fr-be": "Belgium - French",
+                "nl-be": "Belgium - Dutch",
+                "nl-nl": "Netherlands"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_58a351572fb4c",
+            "label": "Alternate URL",
+            "name": "alternate_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5806c3cde22da",
+                        "operator": "!=",
+                        "value": ""
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.worldwide.com",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "landing"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1490113772
+}

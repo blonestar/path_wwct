@@ -1,0 +1,450 @@
+nav.hero-menu {
+    background-color: #005a84;
+}
+nav.hero-menu ul {
+    list-style: none;
+    margin: 0 !important;
+    padding-left: 0;
+}
+nav.hero-menu ul li {
+    display: inline-block;
+}
+nav.hero-menu ul li a {
+    text-transform: uppercase;
+    color: #5a94af;
+    line-height: 72px;
+    height: 72px;
+    padding: 0 30px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+}
+nav.hero-menu ul li a:hover,
+nav.hero-menu ul li.current_page_item a {
+    background-color: #005177;
+    text-decoration: none;
+}
+nav.hero-menu ul li.current_page_item a {color: #fff;}
+.current-study header h2 {
+    text-transform: uppercase;
+    font-size:1.6rem;
+}
+.main-content h2 {
+    text-transform: none;
+    font-size:1.6rem;
+}
+.page-template-tpl-participate .main-content {padding: 40px 0 0;}
+.block_participate_latest_studies h3 {
+    font-weight:500;
+    font-size:18px;
+    margin-bottom:20px;
+}
+.current-study {
+    border:solid 1px #b7b7b7;
+    background:#fff;
+    margin-bottom: 15px;
+}
+.current-study header {
+    border-bottom:solid 1px #b7b7b7;
+    padding:30px 15px;
+    color:#fff;
+    background:#008f9c;
+    min-height:150px;
+    margin-bottom: 20px;
+}
+.current-study .study-info, .current-study .study-btns {
+    padding:0 15px;
+    margin-bottom:15px;
+}
+.current-study footer {
+    padding:15px;
+    margin:0;
+    border-top:solid 1px #b7b7b7;
+}
+.current-study .study-info.needed, .current-study .study-info.location {
+    min-height:50px;
+}
+.current-study .study-info.dates {
+    max-height:145px;
+    overflow: hidden;
+    position: relative;
+}
+
+.less-link,
+.more-link {
+    display: block;
+}
+.less-link,
+span.more-content  {
+    display: none;
+}
+
+.current-study .study-info.dates.active {max-height:initial;}
+.more-dates {display:none;}
+.current-study .more-link,
+.current-study .less-link {
+    --display: block;
+    --text-align: right;
+    --position: absolute;
+    --bottom: 5px;
+    --right: 15px;
+    --left: 15px;
+    --background: -webkit-linear-gradient(rgba(255,255,255,0), #fff);
+    --background: linear-gradient(rgba(255,255,255,0), #fff);
+    color:#629e3d;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+}
+.long-dates.active .more-dates {
+    display: block;
+    text-align: right;
+    position: static;
+    background:transparent;   
+}
+.study-btns .btn {
+    display:block;
+    text-align: center;
+    margin:0 0 10px;
+}
+.block_participate_sms {background:url(../img/chat.png) 24% 30% no-repeat;}
+.block_participate_sms .text-white p {padding:0 30%;}
+.block_participate_sms .btn.btn-white {border:solid 1px #fff;}
+.block_participate_info .middle p {
+    border-left:solid 1px #d1d2d3;
+    border-right:solid 1px #d1d2d3;
+}
+.soc-links {
+    width:47px;
+    float:left;
+}
+.soc-links a {
+    width:47px;
+    height:47px;
+    display:block;
+    margin-bottom:10px;
+    background:url(../img/soc-color.png) center top no-repeat;
+}
+.soc-links a.inst {
+    background-position:center bottom;
+}
+.soc-desc {padding-left:65px;}
+.soc-desc p {padding-right:20%;}
+.block_participate_info h4 {
+    font-size:18px;
+    margin-bottom:25px;
+}
+.block_participate_info .btn {
+    color:#629e3d !important;
+    background:transparent;
+    border:solid 1px #629e3d;
+    margin:0 auto;
+}
+.block_participate_info .btn:hover {
+    color:#fff !important;   
+}
+.single-studies .main-study {
+    padding:45px 0 30px;
+    background:#f0f1f5;
+}
+.single-studies .study-btns .btn {
+    display: none;
+}
+
+
+
+/* Form 5... */
+.single-studies .gform_wrapper,
+#gform_5 .gform_wrapper {padding:35px 0 45px;}
+.single-studies .gform_title {
+    font-size:30px;
+    text-transform: uppercase;
+    margin-bottom:30px;
+}
+.single-studies .gform_fields, .single-studies .gform_fields > li,
+#gform_5 .gform_fields,
+#gform_5 .main-content .gform_fields > li {
+    list-style: none;
+    padding:0;
+    margin:0;
+    font-size:16px;
+}
+.single-studies .made-place label,
+#gform_5 .main-content label {display:none;}
+.single-studies .gfield.col-md-6, .single-studies .gfield.col-md-12 .ginput_left,
+.single-studies .gfield.col-md-12 .ginput_right  {
+    float:left;
+    width:50%;
+}
+.single-studies .gfield input[type=text],.single-studies .gfield input[type=url], 
+.single-studies .gfield input[type=email],.single-studies .gfield input[type=tel],
+.single-studies .gfield input[type=number],.single-studies .gfield input[type=date] {
+    background-color: #fff;
+    line-height: 1.5em;
+    color: #595756;
+    border: 1px solid #dbdbdb;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 8px 2%;
+    width:96% !important;
+    box-shadow: inset 1px 1px 4px 1px #f4f4f4;
+    min-height: 1.9em;
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom:12px;    
+}
+#gform_5 .gfield input[type=text],
+#gform_5 .gfield input[type=url], 
+#gform_5 .gfield input[type=email],
+#gform_5 .gfield input[type=tel],
+#gform_5 .gfield input[type=number],
+#gform_5 .gfield input[type=date] {
+    background-color: #fff;
+    line-height: 1.5em;
+    color: #595756;
+    border: 1px solid #dbdbdb;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 8px 2%;
+    width:100% !important;
+    box-shadow: inset 1px 1px 4px 1px #f4f4f4;
+    min-height: 1.9em;
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom:12px;    
+}
+.single-studies .gfield select {
+    text-transform: uppercase;
+    font-weight:bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #595756;
+    font-size:16px;
+}
+.single-studies .gfield input::-webkit-input-placeholder, .single-studies .gfield textarea::-webkit-input-placeholder,
+#gform_5 .gfield input::-webkit-input-placeholder,
+#gform_5 .gfield textarea::-webkit-input-placeholder {
+  color: #000;
+  text-transform: uppercase;
+  opacity:1;
+  font-weight:bold;
+}
+.single-studies .gfield input::-moz-placeholder, .single-studies .gfield textarea::-moz-placeholder,
+#gform_5  .gfield input::-moz-placeholder,
+#gform_5  .gfield textarea::-moz-placeholder { 
+  color: #595756;
+  text-transform: uppercase;
+  opacity:1;
+  font-weight:bold;
+}
+.single-studies .gfield input:-ms-input-placeholder, .single-studies .gfield textarea:-ms-input-placeholder,
+#gform_5 .gfield input:-ms-input-placeholder,
+#gform_5 .gfield textarea:-ms-input-placeholder { 
+  color: #595756;
+  text-transform: uppercase;
+  opacity:1;
+  font-weight:bold;
+}
+.single-studies .gfield input:-moz-placeholder, .single-studies .gfield textarea:-moz-placeholder,
+#gform_5 .gfield input:-moz-placeholder,
+#gform_5 .gfield textarea:-moz-placeholder { 
+  color: #595756;
+  text-transform: uppercase;
+  opacity:1;
+  font-weight:bold;
+}
+.single-studies .gfield_label {
+    font-size:16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color:#595756;
+    opacity:0.7;
+}
+.single-studies .gfield_radio label {
+    font-size:16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color:#595756;
+}
+.single-studies #field_4_8, .single-studies #field_4_9, .single-studies #field_4_19, .single-studies #field_4_20,
+.single-studies #field_4_10, .single-studies #field_4_11,.single-studies .gfield_radio label img {display:none;}
+.clear {clear:both;}
+.single-studies #field_4_5 {width:23%;float:left;}
+.single-studies #field_4_22 {width:25%;float:left;padding-right:2%;}
+.single-studies #field_4_15 {width:48%;float:left;padding-left:2%;}
+.single-studies #field_4_15 #input_4_15 #input_4_15_1_container {width:35%;float:left;padding-right:2%;}
+.single-studies #field_4_15 #input_4_15 #input_4_15_2_container {width:30%;float:left;padding-right:2%;}
+.single-studies #field_4_15 #input_4_15 #input_4_15_3_container {width:30%;float:left;padding-right:0;}
+.single-studies .gfield_radio {
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+.single-studies #field_4_22 .gfield_description {
+    color:#595756;
+    font-size:14px;
+    padding:10px 0 0 4px;
+    opacity:0.7;
+    cursor:pointer;
+}
+.single-studies #field_4_22 .gfield_description:hover {
+    opacity:1;
+}
+.single-studies #field_4_22 .gfield_description:before {
+    color:#595756;
+    font-size:12px;
+    font-family: FontAwesome;
+    content: "\f1ec";
+    display:inline-block;
+    vertical-align: top;
+    margin-right:5px;
+}
+.bmi-calc .close-bmi {
+    cursor:pointer;
+    position: absolute;
+    top:10px;
+    right:30px;
+    font-size:16px;
+    color:#898989;
+    font-weight: 400;
+}
+.bmi-calc .close-bmi i {
+    color:#629e3d;
+}
+.bmi-calc h2 {
+    font-size:30px;
+    text-transform: uppercase;
+    padding-top:20px;
+}
+.bmi-calc .as-radio-item {
+    display:inline-block;
+    padding:0 10px;
+    color:#595756;
+    font-size:16px;
+    font-weight:300;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+.bmi-calc .as-radio-item span {
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border-radius:6px;
+    border:solid 1px #b7b7b7;
+    margin-right:3px;
+    position: relative;
+}
+.bmi-calc .as-radio-item.active span:before {
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:4px;
+    background:#629e3d;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin:-4px 0 0 -4px;
+}
+.stand-active .stand, span.metric {display:inline-block;} 
+.stand-active .metric {display:none;} 
+.stand {display:none;} 
+.bmi-calc label {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #595756;
+    opacity: 0.7;
+    margin:10px 0 5px;
+    text-align: left;
+    display: block;
+}
+.bmi-calc .as-form {
+    width:225px;
+    text-align: left;
+    margin:0 auto;
+}
+#bmi-height-2 {margin-top:10px;}
+.bmi-calc .input-wrap span {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #595756;
+    opacity: 0.7; 
+}
+.bmi-calc input {
+    width:182px;
+    background-color: #fff;
+    line-height: 1.5em;
+    color: #595756;
+    border: 1px solid #dbdbdb;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 8px 4px;
+    min-height: 1.9em;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+#bmi-result {padding-top:30px;}
+.bmi-result-in {display:none;}
+#bmi-result p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    margin: 0 auto 10px;
+    line-height: 28px;
+}
+#bmi-result #xl-bmi {
+    font-size: 45px;
+    font-weight: 700;
+}
+#bmi-result #strong-bmi {
+    font-size: 20px;
+}
+#bmi-done {cursor:pointer;}
+.page-template-tpl-participate-faq h2 {
+    font-size:30px;
+    padding-top:20px;
+}
+.page-template-tpl-participate-faq .container-wrapper {
+    padding:40px 0 60px;
+}
+.accordian {
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+.accordian li {
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+.accordian li h3 {
+    font-size:20px;
+    padding-right:35px;
+    position: relative;
+    cursor:pointer;
+    margin-bottom:30px;
+}
+.accordian li h3.active {color:#005a84;}
+.accordian li h3 i {
+    font-size:28px;
+    position: absolute;
+    top:0;
+    right:0;
+}
+.accordian-content {display:none;}
+.stf {
+    text-transform: uppercase;
+    color:#005a84;
+    font-size:12px;
+    font-weight:500;
+    cursor: pointer;
+    text-decoration: none;
+}
+.stf:hover {
+    text-decoration: none;
+}
+.stf .a2a_svg {display:none;}

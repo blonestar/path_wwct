@@ -1,0 +1,43 @@
+{
+    "key": "group_5b75dd428cda7",
+    "title": "Post Type - Landing page (top)",
+    "fields": [
+        {
+            "key": "field_5b75dd5cbb3e3",
+            "label": "Paid Landing Page",
+            "name": "landing_paid",
+            "type": "true_false",
+            "instructions": "If checked it will be set <strong>noindex<\/strong> in Yoast and unchecking will set to <strong>index<\/strong>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "landing"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1534451742
+}

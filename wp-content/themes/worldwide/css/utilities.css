@@ -1,0 +1,10 @@
+.vertical-center,
+.vertical-center-content > * {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbGl0aWVzLmNzcyIsInNvdXJjZXMiOlsidXRpbGl0aWVzLnNjc3MiXSwibWFwcGluZ3MiOiJBQUFBLEFBQUEsZ0JBQWdCO0FBQ2hCLEFBQTJCLHdCQUFILEdBQUcsQ0FBQyxDQUFDO0VBQzNCLFFBQVEsRUFBRSxRQUFTO0VBQ25CLEdBQUcsRUFBRSxHQUFJO0VBQ1QsU0FBUyxFQUFFLGdCQUFXLENBQU0sZ0JBQVU7Q0FDdkMiLCJuYW1lcyI6W119 */
+
+/*# sourceMappingURL=utilities.css.map */

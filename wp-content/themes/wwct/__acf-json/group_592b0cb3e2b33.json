@@ -1,0 +1,187 @@
+{
+    "key": "group_592b0cb3e2b33",
+    "title": "Nav - Menu",
+    "fields": [
+        {
+            "key": "field_592b0ce083ba8",
+            "label": "Show as button?",
+            "name": "menu_show_as_button",
+            "type": "true_false",
+            "instructions": "Note: Will work only on Main Menu area",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_593efc4179112",
+            "label": "Display image",
+            "name": "menu_display_image",
+            "type": "true_false",
+            "instructions": "Note: Will be displayed only in Level 1 submenu.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_592b0ce083ba8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_593efc5f79113",
+            "label": "Menu Image",
+            "name": "menu_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_592b0ce083ba8",
+                        "operator": "!=",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_593efc4179112",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_593efe40341ca",
+            "label": "Menu Image Text",
+            "name": "menu_image_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_592b0ce083ba8",
+                        "operator": "!=",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_593efc4179112",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_593efccc79114",
+            "label": "Menu Image Link",
+            "name": "menu_image_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_592b0ce083ba8",
+                        "operator": "!=",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_593efc4179112",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_593efd9679115",
+            "label": "Open in new window\/tab",
+            "name": "menu_link_target_blank",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location\/main-menu"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1515642233
+}

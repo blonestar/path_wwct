@@ -1,0 +1,155 @@
+{
+    "key": "group_592dfec2ad25b",
+    "title": "Fields - Settings",
+    "fields": [
+        {
+            "key": "field_592dfecb2d703",
+            "label": "Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_592e0306b36d3",
+            "label": "ID",
+            "name": "block_id",
+            "type": "text",
+            "instructions": "It will generate id=\"VALUE\" inside main template block tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_592e034ab36d4",
+            "label": "Classes",
+            "name": "block_class",
+            "type": "text",
+            "instructions": "It will generate 'class' attribute add classes to main template block tag.\r\nclass=\"VALUE\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_592e0741d0b03",
+            "label": "Block Tag",
+            "name": "block_tag",
+            "type": "text",
+            "instructions": "Please add single HTML reserved word. Example: div, section, article, span... (default: section)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "section",
+            "placeholder": "section",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_592dfedd2d704",
+            "label": "Full screen width?",
+            "name": "block_full_screen_width",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_592dff4c2d706",
+            "label": "Margin",
+            "name": "block_margin",
+            "type": "text",
+            "instructions": "Example: 50px 0 50px 0\r\nit generates: style=\"margin: 50px 0 50px 0;\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "0px 0px 0px 0px",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_592dff032d705",
+            "label": "Padding",
+            "name": "block_padding",
+            "type": "text",
+            "instructions": "Example: 50px 0 50px 0\r\nit generates: style=\"padding: 50px 0 50px 0;\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "30px 0px 30px 0px",
+            "placeholder": "0px 0px 0px 0px",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "menu_item_level": "all",
+    "modified": 1496193932
+}

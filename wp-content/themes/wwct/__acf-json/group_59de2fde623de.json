@@ -1,0 +1,237 @@
+{
+    "key": "group_59de2fde623de",
+    "title": "Post Type - Template blocks",
+    "fields": [
+        {
+            "key": "field_59dfd6e64ac88",
+            "label": "Where to display?",
+            "name": "template_block_display_where",
+            "type": "select",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "all_pages": "All pages",
+                "selected_pages": "Selected page(s)"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "array",
+            "placeholder": ""
+        },
+        {
+            "key": "field_59dfd7e84ac8b",
+            "label": "Page position",
+            "name": "template_block_page_position",
+            "type": "checkbox",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59dfd6e64ac88",
+                        "operator": "==",
+                        "value": "all_pages"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "header_above_top_menu": "Above Top Menu",
+                "header_below_top_menu": "Below Top Menu",
+                "header_above_hero": "Above Hero",
+                "header_below_hero": "Below Hero",
+                "footer_above": "Above Footer",
+                "footer_below": "Below Footer"
+            },
+            "allow_custom": 0,
+            "save_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_59dfe1f189905",
+            "label": "Exclude particular pages",
+            "name": "template_block_exclude_particular_pages",
+            "type": "true_false",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59dfd6e64ac88",
+                        "operator": "==",
+                        "value": "all_pages"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_59dfd7784ac89",
+            "label": "Exclude pages",
+            "name": "template_block_exclude_pages",
+            "type": "relationship",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59dfd6e64ac88",
+                        "operator": "==",
+                        "value": "all_pages"
+                    },
+                    {
+                        "field": "field_59dfe1f189905",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "80",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "id"
+        },
+        {
+            "key": "field_59dfd95efd99b",
+            "label": "Pages to display",
+            "name": "template_block_pages",
+            "type": "repeater",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_59dfd6e64ac88",
+                        "operator": "==",
+                        "value": "selected_pages"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Page",
+            "sub_fields": [
+                {
+                    "key": "field_59dfd978fd99c",
+                    "label": "Page",
+                    "name": "page",
+                    "type": "post_object",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
+                },
+                {
+                    "key": "field_59dfdae7fd99d",
+                    "label": "Position",
+                    "name": "position",
+                    "type": "select",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "header_above_top_menu": "Above Top Menu",
+                        "header_below_top_menu": "Below Top Menu",
+                        "header_above_hero": "Above Hero",
+                        "header_below_hero": "Below Hero",
+                        "footer_above": "Above Footer",
+                        "footer_below": "Below Footer"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 1,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "template_blocks"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1508779993
+}
