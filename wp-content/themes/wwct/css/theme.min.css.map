@@ -1,0 +1,1 @@
+{"version":3,"sources":["test.scss"],"names":[],"mappings":"AAAA,KACC,iBAAA,IACA,OAAA","file":"theme.min.css","sourcesContent":["body {\r\n\tbackground-color: red;\r\n\tmargin: 20px;\r\n}\r\n"]}
