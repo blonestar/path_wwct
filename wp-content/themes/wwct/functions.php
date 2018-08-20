@@ -23,7 +23,8 @@ function worldwide_setup() {
 		array(
 			'main-menu' 	=> __( 'Main Menu' ),
 			'top-menu' 		=> __( 'Top Menu' ),
-			'mobile-menu' 	=> __( 'Mobile Menu' )
+			'mobile-menu' 	=> __( 'Mobile Menu' ),
+			'amp-menu' 	=> __( 'AMP Menu' )
 		)
 	);
 	/*
@@ -76,7 +77,7 @@ include_once 'inc/menu_walker.inc.php';
 include_once 'inc/page_walker.inc.php';
 include_once 'inc/share-study.inc.php';
 include_once 'inc/sidebar.inc.php';
-
+include_once 'inc/amp.inc.php';
 
 
 /*

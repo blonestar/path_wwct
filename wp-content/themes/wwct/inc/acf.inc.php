@@ -287,7 +287,15 @@ function get_template_blocks($page_id) {
 							$style = ' style="'.$style.'"';
 						}
 
-						include(get_template_directory() . "/template-blocks/" . get_row_layout() . ".php");
+						if (get_query_var( 'amp' )) {
+							if (! @include(get_template_directory() . "/template-blocks/amp/" . get_row_layout() . ".php") ) {
+								echo "<div class=\"missing-block\">";
+								echo "Missing AMP block: " . get_template_directory() . "/template-blocks/amp/" . get_row_layout() . ".php";
+								echo "</div>";
+							}
+						} else {
+							include(get_template_directory() . "/template-blocks/" . get_row_layout() . ".php");
+						}
 					} else {
 
 						error_log('Error, Template Block file missing! - ' . "/template-blocks/" . get_row_layout());
