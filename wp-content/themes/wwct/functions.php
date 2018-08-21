@@ -249,6 +249,22 @@ function worldwide_theme_name_scripts() {
 add_action( 'wp_enqueue_scripts', 'worldwide_theme_name_scripts' );
 
 
+/*
+ * Load Admin scripts
+ */
+function yournamespace_enqueue_scripts( $hook ) {
+
+  //  if( !in_array( $hook, array( 'post.php', 'post-new.php' ) ) )
+  //      return;
+
+
+    wp_enqueue_script( 
+        'admin-scripts',                         // Handle
+        get_template_directory_uri() . '/js/admin-scripts.js',  // Path to file
+        array( 'jquery' )                             // Dependancies
+    );
+}
+add_action( 'admin_enqueue_scripts', 'yournamespace_enqueue_scripts', 2000 );
 
 
 
