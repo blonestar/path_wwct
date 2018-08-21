@@ -49,8 +49,8 @@
 						<h3><a href="<?php echo site_url('resources/resource-library/') ?>">RESOURCE LIBRARY</a></h3>
 						<h3><a href="<?php echo site_url('in-the-news/') ?>">NEWS</a></h3>
                         <h3><a href="<?php echo site_url('events/') ?>">EVENTS</a></h3>
-						<h3><a href="<?php echo site_url('careers/') ?>">CAREERS</a></h3>
                         */ ?>
+						<h3><a href="<?php echo site_url('careers/') ?>">CAREERS</a></h3>
 						<h3><a href="<?php echo site_url('subscription-center/') ?>">SUBSCRIPTION CENTER</a></h3>
 					</div>
 				</div>
