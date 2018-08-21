@@ -9,9 +9,7 @@
 		<div class="footer">
 			<div class="container">
 				<div class="row">
-
-
-                    <div class="col-md-4 my-auto text-center">
+					<div class="col-md-4 text-center">
 						<a href="<?php echo home_url() ?>" class="foot-logo">
 							<!--<img class="footer-logo" src="<?php echo get_template_directory_uri() ?>/img/worldwide-logo-footer.jpg" alt="worldwide-logo-footer" title="WORLDWIDE CLINICAL TRIALS">-->
 							<object
@@ -21,17 +19,7 @@
 							   data="<?php echo get_template_directory_uri() ?>/img/wwct-logo-white.svg">
 							</object>
 						</a>
-                    </div>
-                    <div class="col-md-4 col-sm-6 text-center footer-nav">
-						<h3><a href="<?php echo site_url('about-us/') ?>">ABOUT</a></h3>
-						<h3><a href="<?php echo site_url('services/') ?>">SERVICES</a></h3>
-						<h3><a href="<?php echo site_url('therapeutic-areas/') ?>">THERAPEUTIC AREAS</a></h3>
-                        <h3><a href="<?php echo site_url('participate-in-a-study/') ?>">PARTICIPATE IN A STUDY</a></h3>
-						<h3><a href="<?php echo site_url('subscription-center/') ?>">SUBSCRIPTION CENTER</a></h3>
-						<h3><a href="<?php echo site_url('careers/') ?>">CAREERS</a></h3>
-						<h3><a href="<?php echo site_url('contact-us/') ?>">CONTACT</a></h3>
-                    </div>
-					<div class="col-md-4 my-auto col-sm-6 text-center footer-nav">
+						<hr>
 						<div class="footer-social-wrapper">
 							CONNECT WITH WORLDWIDE<br>
 							<?php if (have_rows('social', 'option')) { ?>
@@ -42,8 +30,29 @@
 							</ul>
 							<?php } ?>
 						</div>
-                    </div>
+					</div>
+					<div class="col-md-2 col-sm-6 text-md-left text-center footer-nav pt-3">
+						<h3><a href="<?php echo site_url('services/') ?>">SERVICES</a></h3>
+					</div>
+					<div class="col-md-2 col-sm-6 text-md-left text-center footer-nav pt-3">
+						<h3><a href="<?php echo site_url('therapeutic-areas/') ?>">THERAPEUTIC AREAS</a></h3>
+					</div>
+					<div class="col-md-2 col-sm-6 text-md-left text-center footer-nav pt-3">
+						<h3><a href="<?php echo site_url('about-us/') ?>">ABOUT</a></h3>
+						<h3><a href="<?php echo site_url('contact-us/') ?>">CONTACT</a></h3>
 
+					</div>
+					<div class="col-md-2 col-sm-6 text-md-left text-center footer-nav pt-3">
+                        <h3><a href="<?php echo site_url('participate-in-a-study/') ?>">PARTICIPATE IN A STUDY</a></h3>
+                        <?php /*
+						<h3><a href="https://www.wwctrials.net/nodes.html" target="_blank">CLIENT LOGIN</a></h3>
+						<h3><a href="<?php echo site_url('resources/resource-library/') ?>">RESOURCE LIBRARY</a></h3>
+						<h3><a href="<?php echo site_url('in-the-news/') ?>">NEWS</a></h3>
+                        <h3><a href="<?php echo site_url('events/') ?>">EVENTS</a></h3>
+						<h3><a href="<?php echo site_url('careers/') ?>">CAREERS</a></h3>
+                        */ ?>
+						<h3><a href="<?php echo site_url('subscription-center/') ?>">SUBSCRIPTION CENTER</a></h3>
+					</div>
 				</div>
 			</div>
 		</div>
