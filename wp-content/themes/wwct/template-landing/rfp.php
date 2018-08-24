@@ -73,10 +73,12 @@
           
         </div>
         <div class="primary-nav-zone">
-          <div class="nav-extras"><a class="btn btn-hollow btn-blue btn-sm landing-contact" href="tel:610-964-2000">
-<span class="fa fa-phone"> </span>
-610-964-2000
-</a></div>
+          <div class="nav-extras call-button">
+                <a class="btn btn-hollow btn-blue btn-sm landing-contact" href="tel:610-964-2000">
+                <span class="fa fa-phone"> </span>
+                    610-964-2000
+                </a>
+            </div>
         </div>
       </div>
     </div>
