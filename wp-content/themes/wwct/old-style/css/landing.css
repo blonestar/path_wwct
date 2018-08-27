@@ -1212,6 +1212,18 @@ img {
 .header .btn.btn-hollow.landing-contact:active {
     color: #0076a2
 }
+.call-button .btn,
+.show-as-button .btn {
+    background-color: #aa2d78;
+    border: none;
+    color: #fff;
+}
+
+.call-button .btn:hover,
+.show-as-button .btn:hover {
+    color: #fff !important;
+    background-color: #b43792;
+}
 
 @media(max-width:768px) {
     .header .btn.landing-contact {

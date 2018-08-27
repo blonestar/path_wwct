@@ -175,6 +175,47 @@ add_filter('admin_head', 'v2008_c_style');
 
 
 
+/*
+ * Landing pages
+ * add column in admin
+ */
+function wct_landing_head($defaults) {
+	$column_name = 'landing_template_file';//column slug
+	$column_heading = 'Template';//column heading
+	$defaults[$column_name] = $column_heading;
+	$column_name = 'slug';//column slug
+	$column_heading = 'Slug';//column heading
+	$defaults[$column_name] = $column_heading;
+	return $defaults;
+}
+function wct_landing_content($name, $post_ID) {
+    $column_name = 'landing_template_file';//column slug	
+    $column_field = 'landing_template_file';//field slug	
+    if ($name == $column_name) {
+        $post_meta = get_post_meta($post_ID,$column_field,true);
+        if ($post_meta) {
+            echo $post_meta;
+        }
+    }
+    $column_name = 'slug';//column slug	
+    if ($name == $column_name) {
+        //echo get_post_field( 'post_name', $post_id );
+        echo '<a href="'.get_the_permalink($post_id).'" target="_blank">/'.get_page_uri($post_id).'/</a>';
+    }
+}
+
+// ADD STYLING FOR COLUMN
+function wct_landing_style(){
+	$column_name = 'type';//column slug	
+	echo "<style>.column-$column_name{width:10%;}</style>";
+}
+
+add_filter('manage_landing_posts_columns', 'wct_landing_head');
+add_action('manage_landing_posts_custom_column', 'wct_landing_content', 10, 2);
+add_filter('admin_head', 'wct_landing_style');
+
+
+
 
 
 /*
