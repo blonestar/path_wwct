@@ -1921,7 +1921,7 @@ function replace_pdf_link_with_button($matches) {
  * 
  * Set noindex in Yoast if ACF field Paid Landing Page is checked and vice versa if unchecked.
  * 
- */
+ * /
 function landing_set_noindex($post_id){
     if ( wp_is_post_revision( $post_id ) ) return;
     //perform other checks
@@ -1938,3 +1938,48 @@ function landing_set_noindex($post_id){
     }
 }
 add_action( 'save_post', 'landing_set_noindex' );
+*/
+
+
+
+/*
+ * Landing pages
+ * add column in admin
+ */
+function wct_landing_head_index_paid($defaults) {
+	$column_name = 'index';//column slug
+	$column_heading = 'Robots';//column heading
+	$defaults[$column_name] = $column_heading;
+	$column_name = 'paid';//column slug
+	$column_heading = 'Paid';//column heading
+	$defaults[$column_name] = $column_heading;
+	return $defaults;
+}
+function wct_landing_content_index_paid($name, $post_ID) {
+    $column_name = 'index';//column slug	
+    if ($name == $column_name) {
+        $post_meta = get_post_meta($post_ID, '_yoast_wpseo_meta-robots-noindex', true);
+        if ($post_meta) {
+            echo '<span style="color:red">NOINDEX</span>';
+        } else {
+            echo '<span style="color:green">INDEX</span>';
+        }
+    }
+    $column_name = 'paid';//column slug	
+    if ($name == $column_name) {
+        echo (get_field( 'landing_paid', $post_id )) ? "PAID" : "-";
+        //echo '<a href="'.get_the_permalink($post_id).'" target="_blank">/'.get_page_uri($post_id).'/</a>';
+    }
+}
+
+// ADD STYLING FOR COLUMN
+function wct_landing_style_index_paid(){
+	$column_name = 'type';//column slug	
+	echo "<style>.column-$column_name{width:10%;}</style>";
+}
+
+add_filter('manage_landing_posts_columns', 'wct_landing_head_index_paid');
+add_action('manage_landing_posts_custom_column', 'wct_landing_content_index_paid', 10, 2);
+add_filter('admin_head', 'wct_landing_style_index_paid');
+
+echo 1111;
