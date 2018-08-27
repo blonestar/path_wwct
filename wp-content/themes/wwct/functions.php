@@ -741,7 +741,7 @@ endif;
 
 /*
  * Search page url
- */
+ * /
 function isu_search_url( $query ) {
     $page_id = 1773; // This is ID of page with your structure -> http://example.com/mysearch/
     $per_page = 10;
@@ -762,7 +762,7 @@ function isu_search_url( $query ) {
             $query->is_page = false; // disable unnecessary WP condition
             $query->is_singular = false; // disable unnecessary WP condition
         }
-}
+} */
 
 
 
@@ -806,9 +806,23 @@ function form_submit_button( $button, $form ) {
 /* search query */
 function SearchFilter($query) {
    // If 's' request variable is set but empty
+   
+   if (isset($_GET['s']) && !empty($_GET['s']) && is_paged() && $query->is_main_query()) {
+       $query->is_search = false;
+       $query->is_home = false;
+       $query->is_posts_page = true;
+   } else
+   if (isset($_GET['s']) && !empty($_GET['s']) && $query->is_main_query() && $query->is_posts_page) {
+        $query->query['s'] = $_GET['s'];
+        $query->query_vars['s'] = $_GET['s'];   
+   } else 
    if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
       $query->is_search = true;
       $query->is_home = false;
+   } else
+    if (isset($_GET['s']) && $query->is_main_query() && $query->is_single){
+        unset( $query->query['s'] );
+        unset( $query->query_vars['s'] );
    }
    return $query;
 }

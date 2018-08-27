@@ -42,21 +42,21 @@
 					  
 					<?php
 						$prev_post = get_previous_post();
-						$next_post = get_next_post();
+                        $next_post = get_next_post();
 					
 					?>
 					<div class="row post-prev-next">
 						<div class="col text-right">
 							<?php if (!empty($prev_post)) { ?>
-							<p class="post-prev-next-label"><a href="<?php echo $prev_post->guid ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous Post</a></p>
-							<p><a href="<?php echo $prev_post->guid ?>"><?php echo $prev_post->post_title ?></a></p>
+							<p class="post-prev-next-label"><a href="<?php echo get_permalink( $prev_post->ID ) ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous Post</a></p>
+							<p><a href="<?php echo get_permalink( $prev_post->ID ) ?>"><?php echo $prev_post->post_title ?></a></p>
 							<?php } ?>
 						</div>
 						<div class="col text-left">
 							
 							<?php if (!empty($next_post)) { ?>
-							<p class="post-prev-next-label"><a href="<?php echo $next_post->guid ?>">Next Post <i class="fa fa-chevron-right" aria-hidden="true"></i></a></p>
-							<p><a href="<?php echo $next_post->guid ?>"><?php echo $next_post->post_title ?></a></p>
+							<p class="post-prev-next-label"><a href="<?php echo get_permalink( $next_post->ID ) ?>">Next Post <i class="fa fa-chevron-right" aria-hidden="true"></i></a></p>
+							<p><a href="<?php echo get_permalink( $next_post->ID ) ?>"><?php echo $next_post->post_title ?></a></p>
 							<?php } ?>
 						</div>
 					</div>
@@ -106,8 +106,9 @@
 			<div class="col-md-3">
 				<article class="news-post">
 					<?php the_post_thumbnail('image-size-3', array('class' => 'post-img')) ?>
-					<h1 class="post-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-					<a href="<?php the_permalink() ?>" class="read-more">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+					<h1 class="post-title"><a href="<?php echo get_permalink( ) ?>"><?php the_title(); ?></a></h1>
+					<a href="<?php echo get_permalink( ) ?>" class="read-more">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    
 				</article>
 			</div>
 			<?php endwhile; ?>
