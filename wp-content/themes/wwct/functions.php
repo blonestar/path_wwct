@@ -1916,31 +1916,6 @@ function replace_pdf_link_with_button($matches) {
 }
 
 
-/*
- * Landing pages
- * 
- * Set noindex in Yoast if ACF field Paid Landing Page is checked and vice versa if unchecked.
- * 
- * /
-function landing_set_noindex($post_id){
-    if ( wp_is_post_revision( $post_id ) ) return;
-    //perform other checks
-
-    //if(is_sticky($post_id)){ -----> this may work only AFTER the post is set to sticky
-    if (get_field('landing_paid')) { //this will work if the post IS BEING SET ticky  
-        add_action( 'wpseo_saved_postdata', function() use ( $post_id ) { 
-            update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '1' );
-        }, 999 );
-    } else {
-        add_action( 'wpseo_saved_postdata', function() use ( $post_id ) { 
-            update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '0' );
-        }, 999 );
-    }
-}
-add_action( 'save_post', 'landing_set_noindex' );
-*/
-
-
 
 /*
  * Landing pages
@@ -1968,7 +1943,6 @@ function wct_landing_content_index_paid($name, $post_ID) {
     $column_name = 'paid';//column slug	
     if ($name == $column_name) {
         echo (get_field( 'landing_paid', $post_id )) ? "PAID" : "-";
-        //echo '<a href="'.get_the_permalink($post_id).'" target="_blank">/'.get_page_uri($post_id).'/</a>';
     }
 }
 
@@ -1981,5 +1955,3 @@ function wct_landing_style_index_paid(){
 add_filter('manage_landing_posts_columns', 'wct_landing_head_index_paid');
 add_action('manage_landing_posts_custom_column', 'wct_landing_content_index_paid', 10, 2);
 add_filter('admin_head', 'wct_landing_style_index_paid');
-
-echo 1111;
