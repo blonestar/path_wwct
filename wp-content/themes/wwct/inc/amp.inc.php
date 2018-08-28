@@ -35,15 +35,24 @@ function wpse26388_rewrites_init(){
 /*
  * add amp as query var
  */
-add_filter( 'query_vars', 'wpse26388_query_vars' );
 function wpse26388_query_vars( $query_vars ){
 	$query_vars[] = 'amp';
     return $query_vars;
 }
+add_filter( 'query_vars', 'wpse26388_query_vars' );
 
 
 // Add AMP <link rel="amphtml"... to head
-function child_theme_head_script() { 
+function child_theme_head_script() {
+    
+    global $post;
+    //print_r($wp_query);
+   // var_dump(get_field('amp_available', $post->ID));
+
+    // amp is diabled
+    if (get_field('amp_available', $post->ID)===false)
+        return;
+
     if (is_page()) {
 ?>
 
@@ -75,6 +84,20 @@ function makeplugins_json_template_redirect() {
     exit;
 }
 //add_action( 'template_redirect', 'makeplugins_json_template_redirect' );
+
+
+
+function my_page_template_redirect()
+{
+    global $post;
+
+    if ( get_query_var('amp') && (get_field('amp_available', $post->ID) === false) )
+    {
+        wp_redirect( get_the_permalink($post->ID) );
+        die;
+    }
+}
+add_action( 'template_redirect', 'my_page_template_redirect' );
 
 
 
@@ -175,24 +198,6 @@ function append_query_string($url, $post, $leavename=false ) {
 //add_filter('post_link', 'append_query_string');
 
 
-function my_page_template_redirect()
-{
-    global $wp_query;
-
-    //print_r($wp_query);
-
-    /*
-    if( is_page( 'goodies' ) && ! is_user_logged_in() )
-    {
-        wp_redirect( home_url( '/signup/' ) );
-        die;
-    }
-    */
-
-    //echo "amp: " . get_query_var('amp');
-//echo "\n<br>template: " .$template;
-}
-add_action( 'template_redirect', 'my_page_template_redirect' );
 
 
 
