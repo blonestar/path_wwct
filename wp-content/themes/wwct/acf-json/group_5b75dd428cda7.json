@@ -7,7 +7,7 @@
             "label": "Paid Landing Page",
             "name": "landing_paid",
             "type": "true_false",
-            "instructions": "If checked it will be set <strong>noindex<\/strong> in Yoast and unchecking will set to <strong>index<\/strong>.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,7 +17,7 @@
             },
             "message": "",
             "default_value": 0,
-            "ui": 0,
+            "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
         }
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1534451742
+    "modified": 1535412035
 }

@@ -31,6 +31,7 @@
 							<?php } ?>
 						</div>
 					</div>
+					<?php /*
 					<div class="col-md-2 col-sm-6 text-md-left text-center footer-nav">
 						<h3><a href="<?php echo site_url('services/') ?>">SERVICES</a></h3>
 						<?php
@@ -67,6 +68,21 @@
                         <h3><a href="<?php echo site_url('events/') ?>">EVENTS</a></h3>
 						<h3><a href="<?php echo site_url('careers/') ?>">CAREERS</a></h3>
 						<h3><a href="<?php echo site_url('subscription-center/') ?>">SUBSCRIPTION CENTER</a></h3>
+					</div>
+					*/?>
+					<div class="col-md-8 text-md-left text-center footer-nav">
+						<?php
+							wp_nav_menu( array(
+								'menu' => 'Footer Menu 1',
+								'container'	=> false
+							));
+						?>
+						<?php
+							wp_nav_menu( array(
+								'menu' => 'Footer Menu 2',
+								'container'	=> false
+							));
+						?>
 					</div>
 				</div>
 			</div>

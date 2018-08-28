@@ -125,6 +125,15 @@ body {
     font-weight: bold;
 }
 
+.call-button .btn,
+.show-as-button .btn {
+    background-color: #aa2d78;
+}
+
+.call-button .btn:hover,
+.show-as-button .btn:hover {
+    background-color: #b43792;
+}
 
 /* bootstrap 4 alfa fix - added in newer version */
 .position-relative { position: relative; }
@@ -798,10 +807,10 @@ ul.three-col {
     height: 100%;
 	vertical-align: middle;
 	margin: 2px 10px 0;
-	color: #629e3d;   
+	color: #aa2d78;   
 }
 .phone-as-text a {
-    color: #629e3d;
+    color: #aa2d78;
     --padding: 10px 65px;
     display: inline-block;
 

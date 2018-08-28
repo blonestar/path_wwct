@@ -32,7 +32,10 @@
 	.page-template-contact-us .main-content h2 {
 		font-size: 1.6rem;
 	}
-	
+    #menu-footer-menu-1 li a, #menu-footer-menu-2 li a{
+        font-size: 16px;
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 1080px) {
@@ -203,6 +206,11 @@
 	.image_gallery h3 {
 		font-size: 1.4rem;
 	}
+    
+    #menu-footer-menu-1 li a, #menu-footer-menu-2 li a{
+        font-size: 14px;
+    padding: 0 12px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -562,7 +570,10 @@
 		font-size: 1.2rem;
 	}
 	
-
+    #menu-footer-menu-1 li, #menu-footer-menu-2 li{display: block;padding: 0 0 5px 0}
+    #menu-footer-menu-1 li a, #menu-footer-menu-2 li a{border-right:0 }
+    #menu-footer-menu-1{padding: 25px 0 0 0 }
+    #menu-footer-menu-2{padding: 0}
 
 }
 

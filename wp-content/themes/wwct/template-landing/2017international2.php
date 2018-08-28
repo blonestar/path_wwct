@@ -32,7 +32,8 @@
 	
 	<?php echo get_field('tracking_codes_header_1', 'option'); ?>
 </head>
-<body <?php body_class(__FILE__) ?>>
+<body <?php body_class(basename(__FILE__)) ?>>
+
 <?php echo get_field('tracking_codes_header_2', 'option');  ?>
 
 <?php
@@ -219,6 +220,17 @@
 .mktoLogicalField.mktoCheckboxList.mktoHasWidth {
 	width: 22px !important;
 }
+
+.call-button .btn,
+.show-as-button .btn {
+    background-color: #aa2d78;
+}
+
+.call-button .btn:hover,
+.show-as-button .btn:hover {
+    background-color: #b43792;
+}
+
 
 @media (max-width: 1199px) {
 	.hero-small-form .v-cent p {

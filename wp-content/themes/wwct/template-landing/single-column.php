@@ -30,7 +30,7 @@
 	
 	<?php the_post() ?>
 	
-	<body class="LTR Gecko Gecko49 ENUS ContentBody landing" >
+    <body  <?php body_class( "LTR Gecko Gecko49 ENUS ContentBody landing " . basename(__FILE__) ); ?>>
 	
 	<?php echo get_field('tracking_codes_header_2', 'option'); ?>
 
@@ -57,9 +57,11 @@
 									</div>
 -->
 									<div class="primary-nav-zone">
-										<div class="nav-extras"><a href="tel:610-964-2000" class="btn btn-hollow btn-blue btn-sm landing-contact">
+										<div class="nav-extras call-button">
+                                            <a href="tel:610-964-2000" class="btn btn-hollow btn-blue btn-sm landing-contact">
 												<span class="fa fa-phone">&nbsp;</span>610-964-2000
-											</a></div>
+                                            </a>
+                                        </div>
 									</div>
 								</div>
 							</div>

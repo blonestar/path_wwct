@@ -1314,9 +1314,10 @@ article.resources-post .article-border .addtoany_shortcode {
 .template-block.block_talk_with_an_expert .expert-inner-part > * {
     margin-bottom: 16px;
 }
-.text-white *:not(select):not(option),
+.text-white div,
+.text-white span,
 .text-white a {
-    color: #fff;
+    color: #fff !important;
 }
 .text-white a:hover {
     color: #ddd;

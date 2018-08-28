@@ -250,6 +250,22 @@ function worldwide_theme_name_scripts() {
 add_action( 'wp_enqueue_scripts', 'worldwide_theme_name_scripts' );
 
 
+/*
+ * Load Admin scripts
+ */
+function yournamespace_enqueue_scripts( $hook ) {
+
+  //  if( !in_array( $hook, array( 'post.php', 'post-new.php' ) ) )
+  //      return;
+
+
+    wp_enqueue_script( 
+        'admin-scripts',                         // Handle
+        get_template_directory_uri() . '/js/admin-scripts.js',  // Path to file
+        array( 'jquery' )                             // Dependancies
+    );
+}
+add_action( 'admin_enqueue_scripts', 'yournamespace_enqueue_scripts', 2000 );
 
 
 
@@ -742,7 +758,7 @@ endif;
 
 /*
  * Search page url
- */
+ * /
 function isu_search_url( $query ) {
     $page_id = 1773; // This is ID of page with your structure -> http://example.com/mysearch/
     $per_page = 10;
@@ -763,7 +779,7 @@ function isu_search_url( $query ) {
             $query->is_page = false; // disable unnecessary WP condition
             $query->is_singular = false; // disable unnecessary WP condition
         }
-}
+} */
 
 
 
@@ -807,9 +823,23 @@ function form_submit_button( $button, $form ) {
 /* search query */
 function SearchFilter($query) {
    // If 's' request variable is set but empty
+   
+   if (isset($_GET['s']) && !empty($_GET['s']) && is_paged() && $query->is_main_query()) {
+       $query->is_search = false;
+       $query->is_home = false;
+       $query->is_posts_page = true;
+   } else
+   if (isset($_GET['s']) && !empty($_GET['s']) && $query->is_main_query() && $query->is_posts_page) {
+        $query->query['s'] = $_GET['s'];
+        $query->query_vars['s'] = $_GET['s'];   
+   } else 
    if (isset($_GET['s']) && empty($_GET['s']) && $query->is_main_query()){
       $query->is_search = true;
       $query->is_home = false;
+   } else
+    if (isset($_GET['s']) && $query->is_main_query() && $query->is_single){
+        unset( $query->query['s'] );
+        unset( $query->query_vars['s'] );
    }
    return $query;
 }
@@ -1887,25 +1917,42 @@ function replace_pdf_link_with_button($matches) {
 }
 
 
+
 /*
  * Landing pages
- * 
- * Set noindex in Yoast if ACF field Paid Landing Page is checked and vice versa if unchecked.
- * 
+ * add column in admin
  */
-function landing_set_noindex($post_id){
-    if ( wp_is_post_revision( $post_id ) ) return;
-    //perform other checks
-
-    //if(is_sticky($post_id)){ -----> this may work only AFTER the post is set to sticky
-    if (get_field('landing_paid')) { //this will work if the post IS BEING SET ticky  
-        add_action( 'wpseo_saved_postdata', function() use ( $post_id ) { 
-            update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '1' );
-        }, 999 );
-    } else {
-        add_action( 'wpseo_saved_postdata', function() use ( $post_id ) { 
-            update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '0' );
-        }, 999 );
+function wct_landing_head_index_paid($defaults) {
+	$column_name = 'index';//column slug
+	$column_heading = 'Robots';//column heading
+	$defaults[$column_name] = $column_heading;
+	$column_name = 'paid';//column slug
+	$column_heading = 'Paid';//column heading
+	$defaults[$column_name] = $column_heading;
+	return $defaults;
+}
+function wct_landing_content_index_paid($name, $post_ID) {
+    $column_name = 'index';//column slug	
+    if ($name == $column_name) {
+        $post_meta = get_post_meta($post_ID, '_yoast_wpseo_meta-robots-noindex', true);
+        if ($post_meta) {
+            echo '<span style="color:red">NOINDEX</span>';
+        } else {
+            echo '<span style="color:green">INDEX</span>';
+        }
+    }
+    $column_name = 'paid';//column slug	
+    if ($name == $column_name) {
+        echo (get_field( 'landing_paid', $post_id )) ? "PAID" : "-";
     }
 }
-add_action( 'save_post', 'landing_set_noindex' );
+
+// ADD STYLING FOR COLUMN
+function wct_landing_style_index_paid(){
+	$column_name = 'type';//column slug	
+	echo "<style>.column-$column_name{width:10%;}</style>";
+}
+
+add_filter('manage_landing_posts_columns', 'wct_landing_head_index_paid');
+add_action('manage_landing_posts_custom_column', 'wct_landing_content_index_paid', 10, 2);
+add_filter('admin_head', 'wct_landing_style_index_paid');
