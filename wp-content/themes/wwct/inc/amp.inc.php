@@ -66,26 +66,6 @@ add_action( 'wp_head', 'child_theme_head_script' );
 
 
 
-function makeplugins_json_template_redirect() {
-    global $wp_query;
- 
-    //die('bbbbbbbb');
-    //var_dump(is_home());
-    //var_dump(is_front_page());
-    // if this is not a request for json or a singular object then bail
-    //echo 222222222;
-   // print_r($wp_query->query_vars);
-    if ( ! isset( $wp_query->query_vars['amp'] ) || ! is_singular() )
-    return;
-    
-    //echo 333333333;
-    // include custom template
-    include dirname( __FILE__ ) . '/../page-amp.php';
-    exit;
-}
-//add_action( 'template_redirect', 'makeplugins_json_template_redirect' );
-
-
 
 function my_page_template_redirect()
 {
