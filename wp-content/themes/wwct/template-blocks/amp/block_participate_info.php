@@ -1,6 +1,6 @@
 <<?php echo $tag.$id.$class.$style?>>
 
-    <div class="container">
+    <div class="<?php echo $container ?>">
 
         <div class="columns">
 

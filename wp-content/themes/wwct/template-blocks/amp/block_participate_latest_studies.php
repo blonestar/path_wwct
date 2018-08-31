@@ -1,6 +1,6 @@
 
 <<?php echo $tag.$id.$class.$style?>>
-	<div class="container">
+    <div class="<?php echo $container ?>">
         <?php if (get_sub_field('content')) { ?>
 		<div class="columns">
 		    <div class="column col-12">

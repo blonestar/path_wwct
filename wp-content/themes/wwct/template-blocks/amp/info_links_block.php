@@ -1,6 +1,6 @@
 
 <<?php echo $tag.$id.$class ?><?php echo $style ?>>
-	<div class="container">
+    <div class="<?php echo $container ?>">
 		<div class="columns">
 
 			<?php while (have_rows('info_box')) : the_row(); ?>

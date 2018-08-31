@@ -1,7 +1,7 @@
 
 <<?php echo $tag.$id.$class.$style ?>>
 
-	<div class="container">
+    <div class="<?php echo $container ?>">
 		<div class="columns">
 			<div class="col-12 as-title">
 				<?php the_sub_field('content'); ?>

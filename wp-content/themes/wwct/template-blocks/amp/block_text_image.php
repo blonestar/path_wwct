@@ -1,6 +1,6 @@
 
 <<?php echo $tag.$id.$class.$style?>>
-	<div class="container">
+    <div class="<?php echo $container ?>">
 		<div class="columns">
 
                     <?php if (get_sub_field('image_side') && get_sub_field('image_side') == 'left') { ?>

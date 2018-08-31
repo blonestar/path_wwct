@@ -305,7 +305,7 @@ function get_template_blocks($page_id) {
 
 						// add margin styles
 						$block_margin = trim(get_sub_field('block_margin'));
-						if ($block_margin != '')
+						if ($block_margin != '' && !get_query_var( 'amp' ))
 							$style[] = 'margin: ' . $block_margin;
 
 						// add padding styles

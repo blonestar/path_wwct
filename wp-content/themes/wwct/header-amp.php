@@ -25,10 +25,14 @@
     <body <?php body_class() ?>>
 
         <header class="headerbar">
-        <div id="header-content">
-        <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
-        <a href="<?php echo site_url() ?>"><amp-img src="<?php echo get_template_directory_uri() ?>/img/worldwide-logo.png" alt="Worldwide Clinical Trials" width="269" height="74"></amp-img></a>
-        </div>
+            <div id="header-content" class="container">
+                <div class="columns">
+                <div class="column">
+                    <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
+                    <a href="<?php echo site_url() ?>"><amp-img src="<?php echo get_template_directory_uri() ?>/img/worldwide-logo.png" alt="Worldwide Clinical Trials" width="269" height="74"></amp-img></a>
+                </div>
+                </div>
+            </div>
         </header>
 
         <amp-sidebar id="sidebar1" layout="nodisplay" side="right">
@@ -43,8 +47,8 @@
             ?>
         </amp-sidebar>
 
-    <main>
-        <div id="main-content">
+        <main>
+            <div id="main-content">
 <?php
 
 
@@ -132,7 +136,7 @@ if ($header_page_id && get_field('header_type', $header_page_id) && get_field('h
 
 	<?php $header_image = get_field('header_image', $header_page_id);?>
 
-		<div class="container">
+		<div class="container-fluid">
 
 			<div class="columns">
 
@@ -202,6 +206,10 @@ if ($header_page_id && get_field('header_type', $header_page_id) && get_field('h
 			<?php } ?>
 
     
+            </div>
+            </div>
+
+        </div>
 
 	<?php } ?>
 
@@ -212,7 +220,7 @@ if ($header_page_id && get_field('header_type', $header_page_id) && get_field('h
 if (get_field('header_type', $header_page_id) == 'slider') {
 
 ?>
-
+<div class="container-fluid">
     <amp-carousel class="hero-carousel" width="1" height="0.4" layout="responsive" type="slides" autoplay delay="2000">
     <?php
         while (have_rows('header_slides', $header_page_id)) : 
@@ -236,6 +244,9 @@ if (get_field('header_type', $header_page_id) == 'slider') {
         endwhile;
     ?>
     </amp-carousel>
+
+</div>
+
 <?php 
     }
 

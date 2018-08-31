@@ -1,6 +1,6 @@
 
 <<?php echo $tag.$id.$class.$style?>>
-	<div class="container">
+    <div class="<?php echo $container ?>">
 		<div class="column">
             <div class="col-12 text-center">
                 <?php if (get_sub_field('image')) { ?>

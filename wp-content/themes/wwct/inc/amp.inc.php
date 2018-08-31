@@ -181,21 +181,23 @@ function append_query_string($url, $post, $leavename=false ) {
 
 
 
-function change_pricing($content) {
-    if( get_query_var( 'amp' ) && is_page() && is_main_query() ) {
+function amp_replace_img_tag($content) {
+
+    //echo 33;
+    if( get_query_var( 'amp' ) ) {
             
             $string = $content;
             $pattern = '/<img(.*?)>/s';
-            $replacement = '<amp-img$1></amp-img>';
+            $replacement = '<amp-img layout="responsive"$1></amp-img>';
             
             $content = preg_replace($pattern, $replacement, $string);
-
+//echo 222222222222222;
     }       
 
     return $content;
 }
-
-//add_filter('the_content', 'change_pricing');
+add_filter('the_content', 'amp_replace_img_tag');
+add_filter('acf/load_value', 'amp_replace_img_tag');
 
 
 

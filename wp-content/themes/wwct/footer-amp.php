@@ -10,8 +10,8 @@
                         <div class="columns">
                             <div class="column col-12 text-center">
 
-                                <amp-img src="http://pathwwctamp.local/wp-content/themes/wwct/img/worldwide-logo.png" width="269" height="79"></amp-img>
-					
+                                <amp-img src="<?php echo get_template_directory_uri() ?>/img/worldwide-logo.png" alt="Worldwide Clinical Trials" width="269" height="74"></amp-img>
+                                
 				            </div>
 				        </div>
                     </div>
