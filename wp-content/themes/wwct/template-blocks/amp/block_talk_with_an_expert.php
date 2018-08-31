@@ -80,7 +80,7 @@
 
                                         <?php if ($button_title) { ?>
                                         <div class="btn-wrapper">
-                                            <a href="<?php the_permalink() ?>" class="btn btn-primary"><?php echo $button_title ?></a>
+                                            <a href="<?php the_permalink() ?>" class="btn"><?php echo $button_title ?></a>
                                         </div>
                                         <?php } ?>
 
