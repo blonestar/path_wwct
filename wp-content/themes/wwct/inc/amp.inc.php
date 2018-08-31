@@ -186,12 +186,19 @@ function amp_replace_img_tag($content) {
     //echo 33;
     if( get_query_var( 'amp' ) ) {
             
-            $string = $content;
-            $pattern = '/<img(.*?)>/s';
-            $replacement = '<amp-img layout="responsive"$1></amp-img>';
-            
-            $content = preg_replace($pattern, $replacement, $string);
-//echo 222222222222222;
+
+        // IMG to AMP-IMG
+        $string = $content;
+        $pattern = '/<img(.*?)>/s';
+        $replacement = '<amp-img layout="responsive"$1></amp-img>';
+        $content = preg_replace($pattern, $replacement, $string);
+
+
+        // remove <style> from content
+        $content = preg_replace('/<style.*?style>/s', '', $content);
+
+        // remove <div> tags from content
+        $content = preg_replace('/<\/?div.*?>/s', '', $content);
     }       
 
     return $content;
