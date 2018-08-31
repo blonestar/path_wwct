@@ -208,6 +208,17 @@ add_filter('acf/load_value', 'amp_replace_img_tag');
 
 
 
+/*
+ * post_thumbnail_html hook - converting to <amp-img>
+ */
+function my_post_thumbnail_fallback( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+    if (get_query_var('amp')) {
+        $html = preg_replace('/<img(.*?)>/s', '<amp-img layout="responsive"$1></amp-img>', $html);
+    }
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'my_post_thumbnail_fallback', 20, 5 );
+
 
 
 /**

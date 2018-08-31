@@ -907,9 +907,163 @@
     --border: solid 1px #aa2d78;
 }
 
+.template-block.block_talk_with_an_expert .full-width .wp-post-image, .template-block.block_talk_with_an_expert .half-width .wp-post-image {
+    bottom: -20px !important;
+}
+@media (max-width: 986px) {
+    .template-block.block_talk_with_an_expert .full-width .wp-post-image {
+        left: -20px;
+    }   
+}
+@media (max-width: 570px) {
+    .template-block.block_talk_with_an_expert .expert-outline-box {
+        padding: 20px;
+    }
+    .template-block.block_talk_with_an_expert .expert-outline-box .wp-post-image {
+        position: initial;
+        margin-bottom: -40px;
+    }
+
+}
+
+
+/* experts */
+.expert-outline-box {
+    position: relative;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    padding: 0;
+    border: 3px solid #629e3d;
+}
+.expert-img-wrap {
+    display: inline-block;
+}
+.expert-outline-box h1 {
+    font-size: 28px;
+    color: #629e3d;
+    margin: 5px 0;
+}
+.expert-outline-box h2 {
+    color: #a22f70;
+    text-transform: uppercase;
+    font-size: 42px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+.expert-outline-box h3 {
+    color: #a22f70;
+    font-size: 24px;
+    font-weight: normal;
+}
+.expert-outline-box .expert-buttons {
+    margin: 20px 0;
+}
+.expert-outline-box .expert-buttons a {
+    width: 100%;
+    height: 100%;
+}
+.expert-outline-box .expert-content .leadership-title {
+    color: #555;
+    font-size: 14px;
+    font-weight: normal;
+}
+.expert-outline-box .expert-content .btn-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.expert-outline-box .expert-content > a {
+    font-size: 14px;
+    color: #555;
+    text-decoration: underline;
+    font-weight: normal;
+}
+.expert-outline-box .expert-content > a:hover {
+    color: #777;
+}
+.expert-outline-box  .expert-buttons .btn > span {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.experts-form {
+    background-color: #f0f1f5;
+    padding: 20px 0;
+}
+.experts-form.external_form .mktoForm {
+
+}
+.experts-form.external_form .mktoForm .mktoFormRow input[type="text"],
+.experts-form.external_form .mktoForm .mktoFormRow input[type="email"],
+.experts-form.external_form .mktoForm .mktoFormRow textarea,
+.experts-form.external_form .mktoForm .mktoFormRow {
+    width: 99% !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+} 
+@media (max-width: 520px) {
+    /*
+    .expert-outline-box {
+        padding: 20px;
+        text-align: center;
+        margin: 40px 20px;
+    }
+    .expert-outline-box > img {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-bottom: -40px;
+        margin-top: 20px;
+    }
+    */
+}
+
+
+/* utils */
+.w-100 {
+    width: 100%;
+}
 .h-100 {
     height: 100%;
 }
 .template-block.block_banner {
     margin: 0;
+}
+/* spectre part - utils */
+.d-block {
+    display: block;
+}
+.d-inline {
+    display: inline;
+}
+.d-inline-block {
+    display: inline-block;
+}
+.d-flex {
+    display: flex; 
+    display: -ms-flexbox;
+}
+.d-inline-flex {
+    display: inline-flex; 
+    display: -ms-inline-flexbox;
+}
+.d-none,
+.d-hide {
+    display: none !important;
+}
+.d-visible {
+    visibility: visible;
+}
+.d-invisible {
+    visibility: hidden;
+}
+.text-hide {
+    background: transparent;
+    border: 0;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    text-shadow: none;
 }
