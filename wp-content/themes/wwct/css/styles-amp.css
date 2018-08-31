@@ -1090,6 +1090,22 @@
 }
 
 
+.block_2_column_content_imagecaption_text .h3 {
+    font-size: 24px;
+}
+.block_2_column_content_imagecaption_text .border {
+    border-color: #ddd !important;
+}
+.block_2_column_content_imagecaption_text .caption p {
+    font-size: 13px;
+}
+.block_2_column_content_imagecaption_text .block_content p {
+    font-size: 16px;
+    line-height: 32px;
+
+}
+
+
 /* utils */
 .w-100 {
     width: 100%;
