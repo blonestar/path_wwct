@@ -8,7 +8,7 @@
 
                     <div class="container">
                         <div class="columns">
-                            <div class="column col-3 col-md-4 col-sm-12 text-center text-white">
+                            <div class="column col-3 col-md-12 text-center text-white">
 
   
 
@@ -29,7 +29,7 @@
                                     </div>
 
                             </div>
-                            <div class="column col-9 col-md-8 col-sm-12 text-center footer-menu-border">
+                            <div class="column col-9 col-md-12 text-center footer-menu-wrapper">
                                 <hr class="show-sm">
                                 <?php
                                     wp_nav_menu( array(
