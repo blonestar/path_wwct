@@ -4,7 +4,7 @@
     <div class="columns">
             <?php $pos = get_sub_field('text_side'); ?>
             <?php if ($pos=='left') { ?>
-            <div class="col-7 sm-col-12">
+            <div class="column col-7 sm-col-12">
             
                 <div class="block_text_and_blockquote__content">
                     <?php the_sub_field('text') ?>
@@ -12,7 +12,7 @@
 
             </div>
             <?php } ?>
-            <div class="col-5 sm-col-12">
+            <div class="column col-5 sm-col-12">
 
                 <div class="block_text_and_blockquote__blockquote">
 
@@ -26,7 +26,7 @@
 
             </div>
             <?php if ($pos=='right') { ?>
-            <div class="col-7 sm-col-12">
+            <div class="column col-7 sm-col-12">
             
                 <div class="block_text_and_blockquote__content">
                     <?php the_sub_field('text') ?>

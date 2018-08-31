@@ -8,8 +8,8 @@
         </div>
         <div class="columns">
             <div class="column col-lg-7  col-md-12  mb-4 mb-md-0">
-                <div class="vertical-center border p-4 text-center ">
-                    <?php echo wp_get_attachment_image( get_sub_field('image'), 'full', null, array( "class" => "mb-2" ) ); ?> 
+                <div class="vertical-center border p-4 text-center "> 
+                    <?php echo wp_get_attachment_amp_image( get_sub_field('image'), 'full', null, array( "style" => "" ), false ); ?> 
                     <div class="caption">
                         <?php the_sub_field('image_caption') ?>
                     </div>
