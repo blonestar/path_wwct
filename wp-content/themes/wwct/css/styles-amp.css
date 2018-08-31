@@ -102,6 +102,14 @@
   margin-right: auto;
 }
 
+.show-xs,
+.show-sm,
+.show-md,
+.show-lg,
+.show-xl {
+  display: none;
+}
+
 @media (max-width: 1280px) {
   .col-xl-12,
   .col-xl-11,
@@ -595,6 +603,7 @@
   #footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px 0;
   }
   #footer-copyright-wrapper {
     background-color: #005177;
@@ -609,6 +618,7 @@
   }
   #footer-copyright ul {
     text-align: center;
+    padding: 0;
   }
   #footer-copyright ul li {
     display: inline-block;
@@ -623,6 +633,74 @@
   footer a:hover {
     text-decoration: underline;
   }
+
+  
+footer .social {
+    list-style: none;
+    padding: 0;
+}
+footer .social li {
+    display: inline-block;
+    margin: 0 8px;
+}
+footer .social li a {
+    font-size: 24px;
+}
+
+
+footer .footer-menu-border {
+    --margin-top: 12px;
+}
+
+footer .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+}
+footer .menu li {
+    display: inline-block;
+    
+}
+footer .menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    --display: block;
+    border-right: 2px solid #fff;
+    line-height: normal;
+    padding: 0 35px;
+}
+
+footer .menu li:last-child a {
+    border: none;
+}
+@media (max-width: 600px) {
+    footer .menu {
+        padding: 0;
+    }
+    footer .menu li a {
+        border: none;
+    }
+    footer .menu li {
+        display: block;
+        margin: 6px 0;
+    }
+}
+
+
+.text-white .social a,
+.text-white a {
+    color: #fff;
+}
+.text-white a:hover {
+    color: #dcdcdc;
+}
 
   .btn {
       line-height: 1.8rem;
