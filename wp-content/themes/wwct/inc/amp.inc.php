@@ -185,24 +185,44 @@ function amp_replace_img_tag($content) {
 
     if( get_query_var( 'amp' ) ) {
 
+       // echo 77777777;
+
         // IMG to AMP-IMG
         $string = $content;
         $pattern = '/<img(.*?)>/s';
-        $replacement = '<amp-img layout="responsive"$1></amp-img>';
+        $replacement = '<amp-img layout="responsive" $1></amp-img>';
         $content = preg_replace($pattern, $replacement, $string);
 
 
         // remove <style> from content
         $content = preg_replace('/<style.*?style>/s', '', $content);
 
+
+        // remove <script> from content
+        $content = preg_replace('/<script.*?script>/s', '', $content);
+
         // remove <div> tags from content
         $content = preg_replace('/<\/?div.*?>/s', '', $content);
-    }       
+
+        // youtube to <amp-youtube
+        $content2 = str_replace("https://www.youtube.com/embed/","",$content);
+        $content = preg_replace('/<iframe\s+.*?\s+src="(.*?)\?.*?".*?<\/iframe>/', '<amp-youtube
+                        data-videoid="$1"
+                        layout="responsive"
+                        width="1" height="0.5"></amp-youtube>', $content2);
+                    };
+
+        // removing !important from style="" arttribute, how come?!
+        $content = preg_replace('/!important/s', '', $content);
+
+        // removing <img attribute align=""?!
+        $content = preg_replace('/(<amp-img.*?)(align=".*?")/m', '$1', $content);
 
     return $content;
 }
 add_filter('the_content', 'amp_replace_img_tag');
-add_filter('acf/load_value', 'amp_replace_img_tag');
+add_filter('acf/load_value', 'amp_replace_img_tag', 10, 3);
+add_filter('acf/field', 'amp_replace_img_tag', 10, 3);
 
 
 /*
@@ -373,3 +393,55 @@ function my_acf_format_value( $value, $post_id, $field ) {
 	return $value;
 }
 //add_filter('acf/format_value', 'my_acf_format_value', 10, 3);
+
+
+
+
+
+
+
+
+/*
+ * Landing pages
+ * add column in admin
+ */
+function wct_head_amp($defaults) {
+	$column_name = 'amp';//column slug
+	$column_heading = 'AMP';//column heading
+	$defaults[$column_name] = $column_heading;
+	return $defaults;
+}
+function wct_head_content_amp($name, $post_ID) {
+
+    // TODO
+    // posts with different status treat differently eg: draft, private....
+
+     $post_status = get_post_status ( $post_ID );
+    if ($post_status !== 'publish' && $post_status !== 'private' ) {
+        //echo '<span style="color:#ddd">('.$post_status.')</span>';
+        return;
+    }
+
+    $column_name = 'amp';//column slug	
+    if ($name == $column_name) {
+        $amp_avail = get_field('amp_available');
+        if ($amp_avail === true) {
+            echo '<span style="color:red"><a href="'.get_permalink($post_ID).'amp/#development=1" title="'.get_permalink($post_ID).'amp/#development=1" target="_blank">enabled</a></span>';
+        } 
+        else if ($amp_avail === false) {
+            echo '<span style="color:#ddd">disabled</span>';
+        } else {
+            echo '<span style="color:green"><a href="'.get_permalink($post_ID).'amp/#development=1" title="'.get_permalink($post_ID).'amp/#development=1" target="_blank">Not set but enabled</a></span>';
+        }
+    }
+}
+
+// ADD STYLING FOR COLUMN
+function wct_heah_style_amp(){
+	$column_name = 'type';//column slug	
+	echo "<style>.column-$column_name{width:10%;}</style>";
+}
+
+add_filter('manage_page_posts_columns', 'wct_head_amp');
+add_action('manage_page_posts_custom_column', 'wct_head_content_amp', 10, 2);
+//add_filter('admin_head', 'wct_heah_style_amp');

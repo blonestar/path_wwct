@@ -4,7 +4,7 @@
 		<div class="columns">
 
                     <?php if (get_sub_field('image_side') && get_sub_field('image_side') == 'left') { ?>
-        			<div class="col-5">
+        			<div class="column col-5">
                         <?php if (get_sub_field('video_as_image')){ ?>
                         <div class="videoWrapper">
                              <?php the_sub_field('video_embed_code'); ?>
@@ -14,14 +14,14 @@
                          <?php } ?>
         	        </div>
                     <?php } ?>
-        			<div class="col-auto">
+        			<div class="column col">
                         <?php the_sub_field('content') ?>
                         <?php if (get_sub_field('button_title') && get_sub_field('button_link')) { ?>
                         <?php include "part_button.php"; ?>
                         <?php } ?>
         	        </div>
                     <?php if (get_sub_field('image_side') == 'right') { ?>
-        			<div class="col-5">
+        			<div class="column col-5">
                          <?php if (get_sub_field('video_as_image')){ ?>
                           <div class="videoWrapper">
                              <?php the_sub_field('video_embed_code'); ?>

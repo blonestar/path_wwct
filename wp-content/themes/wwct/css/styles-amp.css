@@ -513,7 +513,7 @@
   .btn:focus,
   .btn:hover {
     background: #69a847;
-    border-color: #69a847;
+    --border-color: #69a847;
     text-decoration: none;
   }
   
@@ -561,8 +561,12 @@
   }
 */
 
-
-
+.btn-outline {
+    border: 1px solid #fff;
+}
+.btn-wrapper {
+    width: 100%;
+}
 
   /* layout */
   body {
@@ -1216,6 +1220,9 @@ footer .menu li:last-child a {
         height: unset;
         padding: 20px 0;
     }
+}
+.template-block.block_text_side_button h1 {
+    margin: 0;
 }
 
 

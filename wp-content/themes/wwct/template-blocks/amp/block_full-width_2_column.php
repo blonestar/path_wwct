@@ -13,7 +13,7 @@
                     <?php if ($overlay_image || $overlay_image_desc) { ?>
                     <div class="h-100 d-table-cell align-middle text-center">
                         <?php if ($overlay_image) { ?>
-                            <?php echo wp_get_attachment_image($overlay_image, 'full') ?>
+                            <?php echo wp_get_attachment_amp_image($overlay_image, 'full') ?>
                             <?php if ($overlay_image_desc) { ?>
                                 <div class="overlay-image-delim"></div>
                             <?php } ?>
