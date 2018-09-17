@@ -43,87 +43,28 @@ if (is_array($eventstype)) {
 $args = array(
         'post_status'       => 'publish',
         'post_type'			=> 'events',
-        //'posts_per_page'	=> 1,
-        'orderby'			=> 'date',
-        'order'				=>  'desc',
+        'posts_per_page'	=> -1,
+        'orderby'			=> 'menu_order',
+        'order'				=>  'ASC',
         'tax_query' 		=> array(
                                     'relation' => 'OR',
                                     $eventstype_arr,
                                     $locations_arr
                                 ),
-        'year'				=> $year,
-        's'					=> $search
+        //'year'				=> $year,
+        //'s'					=> $search
     );
+    
+	if( $year ) {
+		$args['year'] = $year;
+	}
+
+	if( $search ) {
+		$args['s'] = $search;
+	}
 $query = new WP_Query($args);
 
 ?>
-
-<section class="posts-filter">
-	<div class="container">     
-		<div class="row">
-			<div class="col-9 col-lg-8 offset-lg-1 posts-filter-left ">
-                <form id="apply-filter" action="" method="get">
-					<span class="events-type-cat-wrap">
-						<select id="events-type-cat" class="terms-filter multisel" multiple="multiple">
-							<?php 
-								$event_type_tax = get_terms( 'event_type_tax' );
-								foreach ($event_type_tax as $term) {
-									$res_selected = (in_array($term->slug, $eventstype)) ? ' selected' : '';
-							?>
-								<option value="<?php echo $term->slug ?>" data-term-id="<?php echo $term->term_taxonomy_id ?>"<?php echo $res_selected ?>><?php echo $term->name ?></option>
-							<?php
-								}
-							?>
-						</select>
-					</span>
-                    &nbsp;
-                    <?php 
-                        $locations_all_arr = get_terms( array('taxonomy' => 'locations', 'hierarchical' => false ) );
-                        //echo "<pre>";
-                        //print_r($locations_arr);
-                        //echo "</pre>";
-                        ?>
-					<span class="events-location-cat-wrap">
-						<select id="events-location-cat" class="terms-filter multisel" multiple="multiple">
-							<?php
-								foreach ($locations_all_arr as $term) {
-									$selected = (in_array($term->slug, $locations_arr)) ? ' selected' : '';
-							?>
-								<option value="<?php echo $term->slug ?>" data-term-id="<?php echo $term->term_taxonomy_id ?>"<?php echo $selected ?>><?php echo $term->name ?></option>
-							<?php
-								}
-							?>
-						</select>
-					</span>
-                    &nbsp;
-					<span class="styled-date----">
-						<select id="select-year" placeholder="Year" name="year">
-							<?php for($yeari = date('Y'); $yeari >= 2017; $yeari--) { ?>
-							<option value="<?php echo $yeari ?>"<?php echo ($year==$yeari) ? ' selected':''?>><?php echo $yeari ?></option>
-							<?php } ?>
-						</select>
-					</span>
-                    <button class="btn btn-filter">Apply</button>
-                </form>
-			</div>
-            <div class="col-3 text-right blog posts-filter-left">
-                            <div id="widget_blog_search-3" class="widget search_form_widget">
-                                <form role="search" id="search-form-widget" method="get" class="search-form" action="<?php echo get_permalink() ?>">
-                                    <div class="blog searchBox">
-                                        <input type="search" class="search-field form-control" autocomplete="off" placeholder="Search …" value="<?php echo @$search ?>" name="s" title="Search for:">
-                                        <a id="btnSrch" href="#" onclick="document.getElementById('search-form-widget').submit();">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-		</div>
-	</div>
-</section>
-
-
-
 
 <section class="main-content posts-list news-posts-list">
 	<div class="container">
@@ -150,72 +91,104 @@ $query = new WP_Query($args);
 			<div class="col-lg-1 hidden-md-down">
 				<?php get_template_part( 'template-parts/tpl-part-share-vertical' ) ?>
 			</div>
-			<div class="col-lg-8 col-md-8 col-sm-8">
-						<div class="row">
-				<?php
-                
-                    while($query->have_posts()) { $query->the_post();
-                
-                        // destroy vars
-						if (isset($locations_terms)) unset($locations_terms, $locations_term_arr);
-						if (isset($event_type_terms)) unset($event_type_terms, $event_type_term_arr);
-
-                        $locations_terms = get_the_terms( get_the_ID(), 'locations' );
-                        $event_type_terms = get_the_terms( get_the_ID(), 'event_type_tax' );
-
-						if ($locations_terms!==false)
-						foreach($locations_terms as $locations_term)
-							$locations_term_arr[] = $locations_term->name;
-						
-                        if ($event_type_terms!==false)
-						foreach($event_type_terms as $event_type_term)
-							$event_type_term_arr[] = $event_type_term->name;
-
-                ?>
-							<div class="col-sm-12 col-md-12 col-lg-6 post-wrapper">
-								<article class="event-post h-100">
-									<div class="article-border h-100">
-										<header style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(),  'image-size-3') ?>);">
-
-											<p class="event-date"><?php echo format_event_date(get_field('event_start_date'),get_field('event_end_date')) ?></p>
-
-											<?php if (isset($locations_term_arr)) {
-													$locations_str = implode(', ', $locations_term_arr); ?>
-												<p class="event-locations"><?php echo $locations_str ?></p>
-											<?php } ?>
-											<h1 class="event-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-											<?php if (isset($event_type_term_arr)) {
-													$event_types_str = implode(', ', $event_type_term_arr); ?>
-												<p class="filter event-type"><?php echo $event_types_str ?></p>
-											<?php } ?>
-										</header>
-										<div class="event-exerpt">
-											<?php echo get_excerpt(); ?>
-											<p><a href="<?php the_permalink() ?>" class="read-more">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></a></p>
-										</div>
-										<footer>
-											<?php echo do_shortcode( '[addtoany url="'.get_permalink().'" title="'.get_the_title().'"]' ); ?>
-											
-										</footer>
-									</div>
-								</article>
-							</div>
-				<?php } // endwhile ?>
-						</div>
-
-				<?php if ($query->found_posts > get_option( 'posts_per_page' )) { ?>
-				<div class="row">
-					<div class="col">
-						<a class="btn viewmorebutton">Show More</a>
-					</div>
-				</div>
-				<?php } ?>
+			<?php
+				$categories = get_terms( array(
+					'taxonomy' => 'event_category_tax',
+					'orderby' => 'name',
+					'order' => 'DESC',
+					'hide_empty' => true,
+				));
 				
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-4">
-				<aside>
-					<?php dynamic_sidebar( 'sidebar-events' ); ?>
-				</aside>
+				while($query->have_posts()) { 
+					
+					$query->the_post();
+					
+					$category_terms = get_the_terms( get_the_ID(), 'event_category_tax' );
+					
+					$category_lists = array();
+					if ($category_terms!==false) {
+						foreach($category_terms as $category_term) {
+							$category_lists[] = $category_term->term_id;
+						}
+					}
+					
+					if( !empty($category_lists) ){
+						foreach($category_lists as $category_list) {
+							$events[$category_list][] = get_the_ID();
+						}
+					}
+				}
+				
+				
+			?>
+			<div class="col-lg-11 col-md-11 col-sm-11">
+				<?php if( !empty($events) ){
+						foreach( $categories as $category ){
+							
+							if(isset($events[$category->term_id]) && !empty($events[$category->term_id])){
+								 ?>
+								<h2 class="event_cate_type"><?php echo $category->name;?></h2>
+								<div class="row">
+								<?php
+								
+								foreach($events[$category->term_id] as $post){
+									
+									setup_postdata($post);
+									
+									// destroy vars
+									if (isset($locations_terms)) unset($locations_terms, $locations_term_arr);
+									if (isset($event_type_terms)) unset($event_type_terms, $event_type_term_arr);
+
+									$locations_terms = get_the_terms( get_the_ID(), 'locations' );
+									$event_type_terms = get_the_terms( get_the_ID(), 'event_type_tax' );
+									
+									$button_text = get_field('event_button_text');
+									$button_text = ($button_text) ? $button_text : 'Read More';
+
+									$link = get_field('event_button_link');
+									$link = ($link) ? $link : get_the_permalink();
+
+									if ($locations_terms!==false)
+									foreach($locations_terms as $locations_term)
+										$locations_term_arr[] = $locations_term->name;
+
+							?>
+										
+								<div class="col-sm-12 col-md-6 col-lg-4 post-wrapper">
+									<article class="event-post h-100">
+										<div class="article-border h-100">
+											<a href="<?php echo $link;?>">
+												<div class="event-item-img" style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(),  'image-size-3') ?>);">
+													<h2 class="event-title"><?php the_title(); ?></h2>
+													<?php if (isset($locations_term_arr)) {
+															$locations_str = implode(', ', $locations_term_arr); ?>
+														<h3 class="event-locations"><?php echo $locations_str ?></h3>
+													<?php } ?>
+													<span class="event-item-date"><i class="fa fa-calendar"></i> <?php echo format_event_date(get_field('event_start_date'),get_field('event_end_date')) ?></span>
+												</div>
+												<div class="event-item-content">
+													<p><?php echo truncatebychars(strip_tags(get_the_content()), 180); ?></p>
+													<div class="event-item-btn">
+													<a href="<?php echo $link;?>" class="event-item-more"><?php echo $button_text;?></a>
+													</div>
+												</div>
+											</a>
+										</div>
+									</article>
+								</div>
+										
+							<?php } ?>
+							
+							</div>
+							
+							<?php
+								wp_reset_postdata($post);
+							}
+				
+						}
+				
+					}
+				?>
 			</div>
 		</div>
 		
