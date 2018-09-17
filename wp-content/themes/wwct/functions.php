@@ -1955,3 +1955,18 @@ function wct_landing_style_index_paid(){
 add_filter('manage_landing_posts_columns', 'wct_landing_head_index_paid');
 add_action('manage_landing_posts_custom_column', 'wct_landing_content_index_paid', 10, 2);
 add_filter('admin_head', 'wct_landing_style_index_paid');
+
+
+
+/*
+ * Truncate by chars
+ * 
+ */
+if ( ! function_exists( 'truncatebychars' ) ){
+	function truncatebychars($chars, $limit){ 
+		if(strlen($chars) <= $limit)
+			return $chars; 
+		else
+			return substr($chars,0,$limit).'...';
+	}
+}
