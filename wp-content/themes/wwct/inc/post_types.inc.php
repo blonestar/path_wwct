@@ -727,6 +727,49 @@ function event_type_taxonomy() {
 }
 add_action( 'init', 'event_type_taxonomy', 0 );
 
+// Register Custom Taxonomy
+function event_category_taxonomy() {
+	$labels = array(
+		'name'                       => _x( 'Categories', 'Taxonomy General Name', 'worldwide' ),
+		'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'worldwide' ),
+		'menu_name'                  => __( 'Categories', 'worldwide' ),
+		'all_items'                  => __( 'All Categories', 'worldwide' ),
+		'parent_item'                => __( 'Parent Category', 'worldwide' ),
+		'parent_item_colon'          => __( 'Parent Category:', 'worldwide' ),
+		'new_item_name'              => __( 'New Category Name', 'worldwide' ),
+		'add_new_item'               => __( 'Add New Category', 'worldwide' ),
+		'edit_item'                  => __( 'Edit Category', 'worldwide' ),
+		'update_item'                => __( 'Update Category', 'worldwide' ),
+		'view_item'                  => __( 'View Category', 'worldwide' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'worldwide' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'worldwide' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'worldwide' ),
+		'popular_items'              => __( 'Popular Items', 'worldwide' ),
+		'search_items'               => __( 'Search Category', 'worldwide' ),
+		'not_found'                  => __( 'Not Found', 'worldwide' ),
+		'no_terms'                   => __( 'No items', 'worldwide' ),
+		'items_list'                 => __( 'Items list', 'worldwide' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'worldwide' ),
+	);
+	/*
+	$rewrite = array(
+		'slug'                       => 'resources/resource-library',
+		'with_front'                 => false,
+		'hierarchical'               => true,
+	);*/
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => false,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		//'rewrite'                    => $rewrite,
+		//'default_term'				 => 'articles'
+	);
+	register_taxonomy( 'event_category_tax', array( 'events' ), $args );
+}
+add_action( 'init', 'event_category_taxonomy', 0 );
 
 
 
